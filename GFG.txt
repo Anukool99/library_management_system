@@ -1,0 +1,74 @@
+//Declare global variable array for CID Reference.
+
+let value = [["PENNY", 0.01], ["NICKEL", 0.05], ["DIME", 0.1], ["QUARTER", 0.25], ["ONE", 1], ["FIVE", 5], ["TEN", 10], ["TWENTY", 20], ["ONE HUNDRED", 100]]
+value.reverse();
+const array1 = [1, 2, 3, 4];
+console.log(array1.reduce((accumulator, currentValue) => accumulator+ currentValue, 5));
+
+console.log(value[0]+value[1])
+//console.log("Valz is " + vaLZ);
+//console.log(value);
+console.log((96.74-80).toFixed(2));
+
+function checkCashRegister(price, cash, cid) {
+  const amtChange = cid.reduce((accumulator, currentValue) => accumulator+ currentValue[1],0);
+  
+  
+  console.log("cash = " + cash);
+  console.log("price = " + price);
+ let change = cash - price;
+ if (amtChange==change) {return({status:"CLOSED", change: cid})}
+  console.log("change = " + change);
+  cid.reverse();
+  let div = change;
+  let ans = [];
+  let i = 0;
+  while (div!=0) {
+    let divValue = (div/value[i][1]).toFixed(2); //Value with which we divide 
+    console.log("divValue when value is " +  value[i][1] +" = "  +divValue); //checking value
+    if (divValue >=1 ) {
+      let floorVal = Math.floor(divValue); //floored quotient for exact number of change
+      let mulVal = value[i][1]; //Value to multiply floorVal to figure out change amount
+      let resVal = floorVal * mulVal; //resultant of multiplication
+      let cidVal = cid[i][1]; //amount of change in specific type of change
+      console.log("mulVal is  " +mulVal); 
+      console.log("floorVal is " + floorVal);
+      console.log("resVal is " + resVal);
+      console.log("cidVal is " + cidVal);
+      
+      if (resVal<cidVal) //if change available is greater than the required change
+       {
+        console.log("entered if loop");
+        console.log("prev div is = " + div); //value of dividend (change to be given)
+        
+        ans.push([value[i][0], resVal]); //push object with value type(from value array) 
+                                      // and amount of change of type to be given (resVal)
+        div = (div-(resVal)).toFixed(2); //since change available>change to be given, subtract from div
+                                        //not subtracting from cid since value becomes 0 at end, no further calc reqd
+        console.log(ans); //check current answer status
+        console.log("new div is = " + div); //new dividend (change amount left to give)
+        }
+      else {
+        console.log("entered else loop");
+        console.log("prev div is = " + div); //value of dividend (change to be given)
+        
+        ans.push([value[i][0], cidVal]);       //push object with cidVal since amount of change to give>type available 
+        div = (div-(cidVal)).toFixed(2);     //Subtract from Div
+        console.log(ans);
+        console.log("new div is = " + div); 
+      };
+      
+      
+      
+      
+      
+    }
+    
+   i++;
+    if(i>=value.length && div!= 0) return ({status: "INSUFFICIENT_FUNDS", change: []});
+  }
+if (ans==cid) {return({status: "CLOSED", change: ans});}
+return({status: "OPEN", change: ans});
+}
+
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
