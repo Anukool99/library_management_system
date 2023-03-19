@@ -19,6 +19,21 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        managebooks.cpp
+        managebooks.h
+        managebooks.ui
+        addbook.cpp
+        addbook.h
+        addbook.ui
+        editbook.cpp
+        editbook.h
+        editbook.ui
+        deletebook.cpp
+        deletebook.h
+        deletebook.ui
+        findbook.cpp
+        findbook.h
+        findbook.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

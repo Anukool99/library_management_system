@@ -6,10 +6,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ptrManageBooks = new ManageBooks();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete ptrManageBooks;
+}
+
+
+
+void MainWindow::on_ManageBooks_clicked()
+{
+    ptrManageBooks->show();
 }
 
