@@ -31,7 +31,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txtISBN"/>
+     <widget class="QLineEdit" name="txtBookISBN"/>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="Name">
@@ -48,7 +48,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="txtName"/>
+     <widget class="QLineEdit" name="txtBookName"/>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="Publisher">
@@ -58,10 +58,10 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="txtAuthor"/>
+     <widget class="QLineEdit" name="txtBookAuthor"/>
     </item>
     <item row="3" column="1">
-     <widget class="QLineEdit" name="txtPublisher"/>
+     <widget class="QLineEdit" name="txtBookPublisher"/>
     </item>
    </layout>
   </widget>
