@@ -2,6 +2,7 @@
 #define ADDBOOK_H
 
 #include <QDialog>
+#include <databaseheader.h>
 
 namespace Ui {
 class AddBook;
@@ -14,6 +15,9 @@ class AddBook : public QDialog
 public:
     explicit AddBook(QWidget *parent = nullptr);
     ~AddBook();
+
+private slots:
+    void on_btnAddBook_clicked();
 
 private:
     Ui::AddBook *ui;
