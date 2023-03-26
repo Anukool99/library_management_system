@@ -7,12 +7,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ptrManageBooks = new ManageBooks();
+    ptrLogin = new Login();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete ptrManageBooks;
+    delete ptrLogin;
 }
 
 
@@ -20,5 +22,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_ManageBooks_clicked()
 {
     ptrManageBooks->show();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ptrLogin->show();
 }
 

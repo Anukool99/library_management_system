@@ -35,6 +35,10 @@ set(PROJECT_SOURCES
         findbook.h
         findbook.ui
         databaseheader.h
+        login.cpp
+        login.h
+        login.ui
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

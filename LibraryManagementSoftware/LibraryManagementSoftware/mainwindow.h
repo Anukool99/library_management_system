@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "login.h"
 #include <QMainWindow>
 #include <managebooks.h>
 
@@ -20,9 +21,12 @@ public:
 private slots:
     void on_ManageBooks_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ManageBooks * ptrManageBooks;
+    Login * ptrLogin;
 
 };
 #endif // MAINWINDOW_H
